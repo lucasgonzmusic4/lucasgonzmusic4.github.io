@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escalas Musicales Ilustradas para Guitarra</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 40px;
+        }
+        h1 {
+            color: #00f3ff;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        h2 {
+            color: #ff00ff;
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        p {
+            color: #cccccc;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        
+        /* --- CAJA PRINCIPAL DE LA GALERÍA --- */
+        .galeria {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            gap: 25px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* --- EFECTOS Y BORDES COMPARTIDOS PARA TODAS --- */
+        .captura {
+            border-radius: 15px;
+            border: 2px solid #333333;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+            transition: 0.4s;
+            background-color: #111111;
+        }
+        .captura:hover {
+            border-color: #00f3ff;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+            transform: scale(1.03);
+        }
+
+        /* --- MOLDES INDIVIDUALES --- */
+        .img-logo {
+            width: 200px;
+            aspect-ratio: 1 / 1;
+            object-fit: contain; 
+        }
+        
+        .img-vertical {
+            width: 240px; 
+            aspect-ratio: 9 / 18; 
+            object-fit: cover;
+        }
+        
+        .img-horizontal {
+            width: 540px; 
+            aspect-ratio: 21 / 9; 
+            object-fit: cover;
+        }
+
+        /* --- BOTONES DE PAGO --- */
+        .btn {
+            background-color: transparent;
+            border: 2px solid;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-mp {
+            color: #00f3ff;
+            border-color: #00f3ff;
+        }
+        .btn-mp:hover {
+            background-color: #00f3ff;
+            color: #0a0a0a;
+            box-shadow: 0 0 15px #00f3ff;
+        }
+        .btn-pp {
+            color: #ff00ff;
+            border-color: #ff00ff;
+        }
+        .btn-pp:hover {
+            background-color: #ff00ff;
+            color: #0a0a0a;
+            box-shadow: 0 0 15px #ff00ff;
+        }
+        
+        /* --- ESTILO PARA WHATSAPP --- */
+        .btn-wsp {
+            color: #25D366;
+            border-color: #25D366;
+            margin-top: 30px;
+            font-size: 1em;
+            padding: 10px 20px;
+        }
+        .btn-wsp:hover {
+            background-color: #25D366;
+            color: #0a0a0a;
+            box-shadow: 0 0 15px #25D366;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #333333;
+            color: #777777;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ESCALAS MUSICALES ILUSTRADAS</h1>
+        <h2>Dominá el mástil de tu guitarra.</h2>
+        
+        <p>
+            Desarrollada por y para la música. La comprás una vez, la instalás en tu celular, 
+            y tenés todas tus escalas y progresiones favoritas guardadas en el bolsillo para siempre.
+        </p>
+
+        <!-- --- GALERÍA CON LAS 3 IMÁGENES --- -->
+        <div class="galeria">
+            <img src="foto1.png" alt="Logo de la App" class="captura img-logo">
+            <img src="foto2.png" alt="Menú de Inicio" class="captura img-vertical">
+            <img src="foto3.png" alt="Mástil Completo" class="captura img-horizontal">
+        </div>
+
+        <!-- --- ACÁ ESTÁN LOS BOTONES DE PAGO CON SUS PRECIOS --- -->
+        <div>
+            <a href="https://mpago.la/1wGJk2x" target="_blank" class="btn btn-mp">Comprar - $20.000 ARS (Mercado Pago)</a>
+            <a href="https://www.paypal.com/ncp/payment/SC2RY293JXZD2" target="_blank" class="btn btn-pp">Comprar - $15 USD (PayPal)</a>
+        </div>
+        
+        <!-- --- BOTÓN DE CONTACTO DIRECTO --- -->
+        <div>
+            <!-- Acordate de reemplazar las X por tu número -->
+            <a href="https://wa.me/5492216252133" target="_blank" class="btn btn-wsp">📲 Soporte directo por WhatsApp</a>
+        </div>
+
+        <div class="footer">
+            <p>Desarrollado por Lucas González | © 2026</p>
+        </div>
+    </div>
+</body>
+</html>
