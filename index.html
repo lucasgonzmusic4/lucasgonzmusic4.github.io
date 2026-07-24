@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escalas Musicales Ilustradas para Guitarra</title>
+    <title>Software Musical por Lucas González</title>
     <style>
         body {
             background-color: #0a0a0a;
@@ -18,26 +18,58 @@
             margin: 0 auto;
             padding-top: 40px;
         }
-        h1 {
-            color: #00f3ff;
-            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        
+        /* --- ESTILOS DE TÍTULOS --- */
+        .titulo-principal {
+            color: #ffffff;
+            font-size: 3.5em;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        .titulo-producto {
             font-size: 2.8em;
             margin-bottom: 5px;
         }
+        .cyan-text { color: #00f3ff; text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
+        .fuchsia-text { color: #ff00ff; text-shadow: 0 0 10px rgba(255, 0, 255, 0.5); }
+
         h2 {
-            color: #ff00ff;
             font-size: 1.5em;
             margin-top: 0;
             margin-bottom: 30px;
         }
+        .cyan-sub { color: #00f3ff; opacity: 0.8; }
+        .fuchsia-sub { color: #ff00ff; opacity: 0.8; }
+
         p {
             color: #cccccc;
             font-size: 1.1em;
             line-height: 1.6;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
-        
-        /* --- CAJA PRINCIPAL DE LA GALERÍA --- */
+
+        /* --- SEPARADOR DE PRODUCTOS --- */
+        .separador {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #333, transparent);
+            margin: 60px 0;
+        }
+
+        /* --- CAJA DE PRODUCTO --- */
+        .producto-box {
+            background-color: #111111;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* --- GALERÍA --- */
         .galeria {
             display: flex;
             justify-content: center;
@@ -47,51 +79,36 @@
             flex-wrap: wrap;
         }
 
-        /* --- EFECTOS Y BORDES COMPARTIDOS PARA TODAS --- */
         .captura {
             border-radius: 15px;
             border: 2px solid #333333;
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
             transition: 0.4s;
             background-color: #111111;
         }
-        .captura:hover {
-            border-color: #00f3ff;
-            box-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
-            transform: scale(1.03);
-        }
-
-        /* --- MOLDES INDIVIDUALES --- */
-        .img-logo {
-            width: 200px;
-            aspect-ratio: 1 / 1;
-            object-fit: contain; 
-        }
+        .captura.cyan-border { box-shadow: 0 0 20px rgba(0, 243, 255, 0.1); }
+        .captura.cyan-border:hover { border-color: #00f3ff; box-shadow: 0 0 30px rgba(0, 243, 255, 0.5); transform: scale(1.03); }
         
-        .img-vertical {
-            width: 240px; 
-            aspect-ratio: 9 / 18; 
-            object-fit: cover;
-        }
-        
-        .img-horizontal {
-            width: 540px; 
-            aspect-ratio: 21 / 9; 
-            object-fit: cover;
-        }
+        .captura.fuchsia-border { box-shadow: 0 0 20px rgba(255, 0, 255, 0.1); }
+        .captura.fuchsia-border:hover { border-color: #ff00ff; box-shadow: 0 0 30px rgba(255, 0, 255, 0.5); transform: scale(1.03); }
 
-        /* --- ALERTA ANDROID --- */
-        .alerta-android {
-            color: #ffcc00;
-            background-color: rgba(255, 204, 0, 0.1);
-            border: 1px solid #ffcc00;
-            padding: 12px 20px;
+        .img-logo { width: 200px; aspect-ratio: 1 / 1; object-fit: contain; }
+        .img-vertical { width: 240px; aspect-ratio: 9 / 18; object-fit: cover; }
+        .img-horizontal { width: 540px; aspect-ratio: 21 / 9; object-fit: cover; }
+
+        /* --- INFO DE INSTALACIÓN --- */
+        .info-instalacion {
+            color: #bbbbbb;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid #444;
+            padding: 15px 25px;
             border-radius: 8px;
-            font-size: 1.05em;
-            font-weight: bold;
+            font-size: 0.95em;
             display: inline-block;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            text-align: left;
+            max-width: 600px;
         }
+        .info-instalacion strong { color: #fff; }
 
         /* --- BOTONES DE PAGO --- */
         .btn {
@@ -107,24 +124,11 @@
             text-decoration: none;
             display: inline-block;
         }
-        .btn-mp {
-            color: #00f3ff;
-            border-color: #00f3ff;
-        }
-        .btn-mp:hover {
-            background-color: #00f3ff;
-            color: #0a0a0a;
-            box-shadow: 0 0 15px #00f3ff;
-        }
-        .btn-pp {
-            color: #ff00ff;
-            border-color: #ff00ff;
-        }
-        .btn-pp:hover {
-            background-color: #ff00ff;
-            color: #0a0a0a;
-            box-shadow: 0 0 15px #ff00ff;
-        }
+        .btn-mp { color: #00f3ff; border-color: #00f3ff; }
+        .btn-mp:hover { background-color: #00f3ff; color: #0a0a0a; box-shadow: 0 0 15px #00f3ff; }
+        
+        .btn-pp { color: #ff00ff; border-color: #ff00ff; }
+        .btn-pp:hover { background-color: #ff00ff; color: #0a0a0a; box-shadow: 0 0 15px #ff00ff; }
         
         /* --- ESTILO PARA WHATSAPP --- */
         .btn-wsp {
@@ -134,11 +138,7 @@
             font-size: 1em;
             padding: 10px 20px;
         }
-        .btn-wsp:hover {
-            background-color: #25D366;
-            color: #0a0a0a;
-            box-shadow: 0 0 15px #25D366;
-        }
+        .btn-wsp:hover { background-color: #25D366; color: #0a0a0a; box-shadow: 0 0 15px #25D366; }
 
         .footer {
             margin-top: 60px;
@@ -151,36 +151,76 @@
 </head>
 <body>
     <div class="container">
-        <h1>ESCALAS MUSICALES ILUSTRADAS</h1>
-        <h2>Dominá el mástil de tu guitarra.</h2>
         
-        <p>
-            Desarrollada por y para la música. La comprás una vez, la instalás en tu celular, 
-            y tenés todas tus escalas y progresiones favoritas guardadas en el bolsillo para siempre.
-        </p>
+        <h1 class="titulo-principal">SOFTWARE MUSICAL</h1>
 
-        <!-- --- GALERÍA CON LAS 3 IMÁGENES --- -->
-        <div class="galeria">
-            <img src="foto1.png" alt="Logo de la App" class="captura img-logo">
-            <img src="foto2.png" alt="Menú de Inicio" class="captura img-vertical">
-            <img src="foto3.png" alt="Mástil Completo" class="captura img-horizontal">
-        </div>
+        <!-- ========================================== -->
+        <!-- PRODUCTO 1: ESCALAS MUSICALES ILUSTRADAS -->
+        <!-- ========================================== -->
+        <div class="producto-box">
+            <h1 class="titulo-producto cyan-text">ESCALAS MUSICALES ILUSTRADAS</h1>
+            <h2 class="cyan-sub">Dominá el mástil de tu guitarra.</h2>
+            
+            <p>
+                Desarrollada por y para la música. La comprás una vez, la instalás en tu celular,<br>
+                y tenés todas tus escalas y progresiones favoritas guardadas en el bolsillo para siempre.
+            </p>
 
-        <!-- --- ALERTA DE SISTEMA OPERATIVO --- -->
-        <div>
-            <div class="alerta-android">
-                ⚠️ Atención: La aplicación es instalable ÚNICAMENTE en dispositivos Android.
+            <!-- GALERÍA ESCALAS -->
+            <div class="galeria">
+                <img src="foto1.png" alt="Logo de la App" class="captura cyan-border img-logo">
+                <img src="foto2.png" alt="Menú de Inicio" class="captura cyan-border img-vertical">
+                <img src="foto3.png" alt="Mástil Completo" class="captura cyan-border img-horizontal">
+            </div>
+
+            <div class="info-instalacion">
+                <strong>⚡ Instalación Instantánea:</strong><br>
+                Al realizar la compra, recibirás un link de acceso exclusivo. Sin descargar archivos APK, sin ocupar memoria extra en tu celular y 100% libre de virus. Compatible exclusivamente con <strong>Android</strong>.
+            </div>
+
+            <div>
+                <a href="https://mpago.la/1wGJk2x" target="_blank" class="btn btn-mp">Comprar - $20.000 ARS (Mercado Pago)</a>
+                <a href="https://www.paypal.com/ncp/payment/SC2RY293JXZD2" target="_blank" class="btn btn-mp" style="color: #00a8ff; border-color: #00a8ff;">Comprar - $15 USD (PayPal)</a>
             </div>
         </div>
 
-        <!-- --- ACÁ ESTÁN LOS BOTONES DE PAGO CON SUS PRECIOS --- -->
-        <div>
-            <a href="https://mpago.la/1wGJk2x" target="_blank" class="btn btn-mp">Comprar - $20.000 ARS (Mercado Pago)</a>
-            <a href="https://www.paypal.com/ncp/payment/SC2RY293JXZD2" target="_blank" class="btn btn-pp">Comprar - $15 USD (PayPal)</a>
+        <div class="separador"></div>
+
+        <!-- ========================================== -->
+        <!-- PRODUCTO 2: ARMONÍA ILUSTRADA            -->
+        <!-- ========================================== -->
+        <div class="producto-box">
+            <h1 class="titulo-producto fuchsia-text">ARMONÍA ILUSTRADA</h1>
+            <h2 class="fuchsia-sub">El motor de progresión armónica definitivo.</h2>
+            
+            <p>
+                Un mapa interactivo gigante para explorar las conexiones reales entre los acordes.<br>
+                Navegá fluidamente por tensiones, dominantes y resoluciones, y guardá tus mejores ideas.
+            </p>
+
+            <!-- GALERÍA ARMONÍA (Acá deberás poner los nombres reales de las fotos que saques) -->
+            <div class="galeria">
+                <!-- SUGERENCIA: Sacá 3 capturas de tu nueva app y poneles estos nombres -->
+                <!-- <img src="armonia1.png" alt="Logo Armonía" class="captura fuchsia-border img-logo"> -->
+                <!-- <img src="armonia2.png" alt="Selector" class="captura fuchsia-border img-vertical"> -->
+                <!-- <img src="armonia3.png" alt="Mapa Interactivo" class="captura fuchsia-border img-horizontal"> -->
+            </div>
+
+            <div class="info-instalacion">
+                <strong>⚡ Instalación Instantánea (Tecnología PWA):</strong><br>
+                Instalación directa desde el navegador de tu celular con activación por correo electrónico. Acceso vitalicio a tu lienzo armónico sin instalaciones pesadas. Compatible con Android.
+            </div>
+
+            <div>
+                <!-- REEMPLAZÁ EL "#" CON TUS LINKS DE PAGO REALES PARA ARMONÍA ILUSTRADA -->
+                <a href="#" target="_blank" class="btn btn-pp">Comprar - $25.000 ARS (Mercado Pago)</a>
+                <a href="#" target="_blank" class="btn btn-pp" style="color: #ff3399; border-color: #ff3399;">Comprar - $20 USD (PayPal)</a>
+            </div>
         </div>
-        
+
         <!-- --- BOTÓN DE CONTACTO DIRECTO --- -->
         <div>
+            <p style="margin-bottom: 10px; font-size: 0.95em;">¿Tenés dudas o necesitás ayuda con tu instalación?</p>
             <a href="https://wa.me/5492216252133" target="_blank" class="btn btn-wsp">📲 Soporte directo por WhatsApp</a>
         </div>
 
