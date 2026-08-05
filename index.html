@@ -14,7 +14,7 @@
             padding: 20px;
         }
         .container {
-            max-width: 1100px;
+            max-width: 1200px; /* Un poco más ancho para que entren las 3 tarjetas cómodas */
             margin: 0 auto;
             padding-top: 40px;
         }
@@ -33,7 +33,7 @@
             background: #222;
             padding: 15px;
             border-radius: 10px;
-            margin: 50px 0 30px 0;
+            margin: 60px 0 30px 0;
             font-size: 2em;
             letter-spacing: 3px;
         }
@@ -86,7 +86,6 @@
             border: 2px solid #333333;
             transition: 0.4s;
             background-color: #111111;
-            /* Altura fija para que todas se vean alineadas, el ancho se ajusta solo */
             height: 280px; 
             object-fit: contain;
         }
@@ -149,6 +148,63 @@
         .btn-wsp:hover { background-color: #25D366; color: #0a0a0a; box-shadow: 0 0 15px #25D366; }
 
         .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #333333; color: #777777; font-size: 0.9em; }
+
+        /* ========================================== */
+        /* --- ESTILOS NUEVOS: TARJETAS ACADEMIA --- */
+        /* ========================================== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .pricing-card {
+            background-color: #111;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 30px 20px;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .pricing-card.premium {
+            border: 2px solid #ffd700;
+            background: linear-gradient(180deg, #1a1500 0%, #111111 100%);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.1);
+            transform: translateY(-10px); /* Hace que sobresalga un poco hacia arriba */
+        }
+
+        .pricing-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.6); }
+        .pricing-card.premium:hover { transform: translateY(-15px); box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2); }
+
+        .pricing-img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .pricing-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .pricing-subtitle {
+            color: #aaa;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card .btn { margin: 10px 0; width: 80%; }
     </style>
 </head>
 <body>
@@ -156,6 +212,49 @@
         
         <h1 class="titulo-principal">Aplicaciónes musicales</h1>
         
+        <!-- ========================================================= -->
+        <!-- NUEVA SECCIÓN: LICENCIAS POR VOLUMEN (ACADEMIAS Y PROFES) -->
+        <!-- ========================================================= -->
+        <div class="titulo-seccion" style="color: #ffffff; border-left: 5px solid #ffffff; border-right: 5px solid #ffffff;">🎓 PACKS ACADEMIA Y PROFESORES</div>
+        <p style="font-size: 1.2em; max-width: 800px; margin: 0 auto 40px auto;">Equipá a tus alumnos con la suite completa de 10 herramientas musicales. Aboná una sola vez y administrá las licencias de tu clase para siempre.</p>
+
+        <div class="pricing-grid">
+            
+            <!-- TARJETA 1: 5 ALUMNOS -->
+            <div class="pricing-card">
+                <img src="pack_academia_5.png" onerror="this.style.display='none'" class="pricing-img">
+                <div class="pricing-title">PACK 5 ALUMNOS</div>
+                <div class="pricing-subtitle">Acceso Full Pack Total (10 Apps) para 1 Docente + 5 Alumnos.</div>
+                <div>
+                    <a href="#" target="_blank" class="btn btn-gold" style="color: #fff; border-color: #fff;">Comprar ARS (Mercado Pago)</a>
+                    <a href="#" target="_blank" class="btn btn-gold" style="color: #aaa; border-color: #aaa;">Comprar USD (PayPal)</a>
+                </div>
+            </div>
+
+            <!-- TARJETA 2: 10 ALUMNOS (DESTACADA) -->
+            <div class="pricing-card premium">
+                <img src="pack_academia_10.png" onerror="this.style.display='none'" class="pricing-img">
+                <div class="pricing-title gold-text">PACK 10 ALUMNOS</div>
+                <div class="pricing-subtitle">Acceso Full Pack Total (10 Apps) para 1 Docente + 10 Alumnos.</div>
+                <div>
+                    <a href="#" target="_blank" class="btn btn-gold">Comprar ARS (Mercado Pago)</a>
+                    <a href="#" target="_blank" class="btn btn-gold" style="color: #ffaa00; border-color: #ffaa00;">Comprar USD (PayPal)</a>
+                </div>
+            </div>
+
+            <!-- TARJETA 3: 20 ALUMNOS -->
+            <div class="pricing-card">
+                <img src="pack_academia_20.png" onerror="this.style.display='none'" class="pricing-img">
+                <div class="pricing-title">PACK 20 ALUMNOS</div>
+                <div class="pricing-subtitle">Acceso Full Pack Total (10 Apps) para 1 Docente + 20 Alumnos.</div>
+                <div>
+                    <a href="#" target="_blank" class="btn btn-gold" style="color: #fff; border-color: #fff;">Comprar ARS (Mercado Pago)</a>
+                    <a href="#" target="_blank" class="btn btn-gold" style="color: #aaa; border-color: #aaa;">Comprar USD (PayPal)</a>
+                </div>
+            </div>
+
+        </div>
+
         <div class="titulo-seccion" style="color: #ffd700;">🌟 COMBOS Y PACKS COMPLETOS 🌟</div>
 
         <!-- ============================== -->
@@ -182,7 +281,7 @@
         <div class="producto-box">
             <h1 class="titulo-producto gold-text">FULL PACK GUITARRA</h1>
             <h2 class="gold-sub">Las 7 apps fundamentales para el guitarrista.</h2>
-            <p>Escalas, Diccionario, Armonía, Ejercicios, Quintas, Afinador y Metrónomo.</p>
+            <p>Escalas, Diccionario, Armonía, Quintas, Ejercicios, Afinador y Metrónomo.</p>
             <div class="galeria">
                 <img src="pack_guitarra_1.png" onerror="this.style.display='none'" class="captura gold-border">
                 <img src="pack_guitarra_2.png" onerror="this.style.display='none'" class="captura gold-border">
